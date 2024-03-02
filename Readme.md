@@ -37,6 +37,18 @@ The project structure is organized as follows:
   - **urls.py:** Main URL patterns for the project.
   - **wsgi.py:** WSGI configuration.
 
+## API Hosting on PythonAnywhere
+
+The API is currently hosted on PythonAnywhere, allowing you to access and test the endpoints. For development purposes, the `DEBUG` setting is set to `True`.
+
+- **API URL:** [https://amarnathjjagatap2001.pythonanywhere.com/](https://amarnathjjagatap2001.pythonanywhere.com/)
+- **DEBUG Mode:** True
+
+### Important Note:
+
+- **Debug Mode:** The `DEBUG` setting is enabled for development, providing detailed error pages. Ensure to set `DEBUG` to `False` in a production environment for security reasons.
+
+
 ## Installation
 
 1. Clone the repository:
@@ -79,7 +91,7 @@ The project structure is organized as follows:
 - **Description:** Registers a new user.
 - **Registration Curl:**
     ```bash
-    curl --location 'http://127.0.0.1:8000/auth/register/' \
+    curl --location 'https://amarnathjjagatap2001.pythonanywhere.com/auth/register/' \
     --form 'email="email"' \
     --form 'name="user-name"' \
     --form 'password="password"'
@@ -92,7 +104,7 @@ The project structure is organized as follows:
 - **Description:** Authenticates a user and generates access and refresh tokens.
 - **Login Curl:**
     ```bash
-    curl --location 'http://127.0.0.1:8000/auth/login/' \
+    curl --location 'https://amarnathjjagatap2001.pythonanywhere.com/auth/login/' \
         --form 'email="email"' \
         --form 'password="password"'
     ```
@@ -104,7 +116,7 @@ The project structure is organized as follows:
 - **Description:** Checks the validity of the access token.
 - **Token Verification Curl:**
     ```bash
-    curl --location 'http://127.0.0.1:8000/auth/test-token/' \
+    curl --location 'https://amarnathjjagatap2001.pythonanywhere.com/auth/test-token/' \
     --header 'Content-Type: application/json' \
     --header 'Authorization: Bearer access_token'
     ```
@@ -116,7 +128,7 @@ The project structure is organized as follows:
 - **Description:** Refreshes the access token using the refresh token.
 - **Refresh Token Curl:**
     ```bash
-    curl --location 'http://127.0.0.1:8000/auth/refresh-token/' \
+    curl --location 'https://amarnathjjagatap2001.pythonanywhere.com/auth/refresh-token/' \
     --header 'Content-Type: application/json' \
     --form 'refresh_token="refresh_token"'
     ```
@@ -128,7 +140,7 @@ The project structure is organized as follows:
 - **Description:** Logs out the user by revoking the refresh token.
 - **Logout Curl:**
     ```bash
-    curl --location 'http://127.0.0.1:8000/auth/logout/' \
+    curl --location 'https://amarnathjjagatap2001.pythonanywhere.com/auth/logout/' \
         --header 'Authorization: Bearer access_token' \
         --header 'Content-Type: application/json' \
         --form 'refresh_token="refresh_token"'
