@@ -125,13 +125,24 @@ The API is currently hosted on PythonAnywhere, allowing you to access and test t
 
 - **Endpoint:** `/auth/refresh-token/`
 - **Method:** `POST`
-- **Description:** Refreshes the access token using the refresh token.
+- **Description:** This endpoint refreshes the access token using the provided refresh token. It verifies whether the refresh token is revoked or not. If revoked, the request will fail, and no new access token will be provided. If the refresh token is valid, a new access token will be generated and returned.
+
 - **Refresh Token Curl:**
+
+  To refresh the access token, use the following `curl` command:
+
     ```bash
     curl --location 'https://amarnathjjagatap2001.pythonanywhere.com/auth/refresh-token/' \
     --header 'Content-Type: application/json' \
     --form 'refresh_token="refresh_token"'
     ```
+
+  Replace `"refresh_token"` with the actual refresh token obtained during the login process.
+
+**Note:** Ensure that the `Content-Type` header is set to `application/json`, and the refresh token is provided in the form data.
+
+This endpoint is essential for maintaining a continuous authentication session by obtaining new access tokens without requiring the user to log in again.
+
 
 ### Logout
 
